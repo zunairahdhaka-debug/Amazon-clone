@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter Font -->
+</head>
+<body>
+
+    <!-- 1. HEADER (Top Navigation Bar) -->
+    <header class="amazon-blue-dark text-white sticky top-0 z-50">
+        <div class="flex items-center h-16 px-4">
+            
+            <!-- Logo (Hidden on small screens) -->
+            <div class="flex items-center mr-4 header-link-hover p-2 rounded-sm cursor-pointer hidden sm:flex">
+                <span class="text-3xl font-bold -mt-1 tracking-tighter">amazon</span>
+                <span class="text-xs ml-1 pt-2">.com</span>
+            </div>
+
+            <!-- Deliver To (Hidden on small screens) -->
+            <div class="flex items-end mr-4 header-link-hover p-2 rounded-sm cursor-pointer hidden md:flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17.5 22 13 22 10a8 8 0 0 0-16 0c0 3 4.7 7.5 10 11.7z"/></svg>
+                <div class="text-xs leading-none">
+                    <span class="text-gray-400 block">Deliver to</span>
+                    <span class="font-bold block">Bangladesh</span>
+                </div>
+            </div>
+
+            <!-- Search Bar (Takes up most space) -->
+            <div class="flex-grow flex items-center h-10 mx-4 hidden lg:flex">
+                <select class="h-full bg-gray-200 text-gray-800 text-sm p-2 rounded-l-md border-r border-gray-300 focus:outline-none hover:bg-gray-300 transition duration-150">
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Books</option>
+                    <option>Home</option>
+                </select>
+                <input type="text" placeholder="Search Amazon" class="flex-grow h-full p-2 text-black focus:ring-4 focus:ring-amazon-orange focus:outline-none transition duration-150">
+                <button class="h-full px-4 bg-yellow-500 rounded-r-md hover:bg-yellow-600 transition duration-150 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                </button>
+            </div>
+
+            <!-- Right-side links -->
+            <div class="flex items-center space-x-2 text-xs font-semibold">
+                
+                <!-- Language/Flag (Hidden on small screens) -->
+                <div class="flex items-center header-link-hover p-2 rounded-sm cursor-pointer hidden md:flex">
+                    <img src="https://placehold.co/20x15/005e00/white?text=EN" alt="EN" class="mr-1">
+                    <span class="text-sm font-bold">EN</span>
+                </div>
+
+                <!-- Account & Lists -->
+                <div class="header-link-hover p-2 rounded-sm cursor-pointer">
+                    <span class="block text-gray-300 leading-tight">Hello, Sign in</span>
+                    <span class="block font-extrabold leading-tight whitespace-nowrap">Account & Lists</span>
+                </div>
+
+                <!-- Returns & Orders -->
+                <div class="header-link-hover p-2 rounded-sm cursor-pointer hidden sm:block">
+                    <span class="block text-gray-300 leading-tight">Returns</span>
+                    <span class="block font-extrabold leading-tight">& Orders</span>
+                </div>
+
+                <!-- Cart -->
+                <div class="flex items-end header-link-hover p-2 rounded-sm cursor-pointer relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span class="absolute top-1 left-6 text-sm font-extrabold text-yellow-500">0</span>
+                    <span class="hidden md:inline-block ml-1 mt-2 font-extrabold">Cart</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar (Visible on small screens) -->
+        <div class="lg:hidden p-2 bg-yellow-500">
+            <div class="flex items-center h-10">
+                <input type="text" placeholder="Search Amazon" class="flex-grow h-full p-2 text-black rounded-l-md focus:ring-4 focus:ring-amazon-orange focus:outline-none transition duration-150">
+                <button class="h-full px-4 bg-gray-700 rounded-r-md hover:bg-gray-800 transition duration-150 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. SECONDARY NAV (Hamburger Menu Bar) -->
+    <nav class="amazon-blue-medium text-white text-sm h-10 flex items-center px-4">
+        <div class="flex space-x-3 whitespace-nowrap overflow-x-auto scrollbar-hide">
+            <!-- All Menu -->
+            <div class="flex items-center header-link-hover p-1.5 rounded-sm cursor-pointer font-extrabold">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                All
+            </div>
+            
+            <!-- Standard Links -->
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer">Today's Deals</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer">Customer Service</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer">Registry</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer">Gift Cards</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer">Sell</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer hidden md:inline">Buy Again</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer hidden lg:inline">Health & Household</a>
+            <a href="#" class="header-link-hover p-1.5 rounded-sm cursor-pointer hidden lg:inline">Books</a>
+        </div>
+    </nav>
+
+    <!-- 3. MAIN CONTENT AREA -->
+    <main class="relative">
+        <!-- Hero/Carousel Banner (Parallax effect simulation) -->
+        <div class="relative overflow-hidden mb-8">
+            <!-- Placeholder for Hero Image - This space normally holds a massive carousel -->
+            <div class="h-80 md:h-96 bg-cover bg-center" style="background-image: url('https://placehold.co/1600x400/000000/ffffff?text=Great+Deals+on+Electronics+and+Home+Goods');">
+            </div>
+            <!-- Gradient Overlay (To lift the content cards over the banner) -->
+            <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#e3e6e6] via-[#e3e6e6]/80 to-transparent z-10"></div>
+        </div>
+        
+        <!-- Content Grids (Positioned slightly over the gradient) -->
+        <div class="px-4 md:px-8 -mt-56 relative z-20">
+
+            <!-- 4-Card Grid Row 1 (Visible on all screen sizes) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                
+                <!-- Card 1: Home Decor -->
+                <div class="bg-white p-5 rounded-md shadow-md">
+                    <h2 class="text-xl font-bold mb-3">Shop Home Decor</h2>
+                    <img src="https://placehold.co/300x250/505050/ffffff?text=Home+Furnishings" alt="Home Decor" class="w-full h-auto rounded-md mb-3 object-cover">
+                    <a href="#" class="text-sm text-blue-600 hover:text-amazon-orange">Shop all items</a>
+                </div>
+
+                <!-- Card 2: Gaming -->
+                <div class="bg-white p-5 rounded-md shadow-md">
+                    <h2 class="text-xl font-bold mb-3">Gaming Accessories</h2>
+                    <img src="https://placehold.co/300x250/202020/ffffff?text=Gaming+Headsets" alt="Gaming Accessories" class="w-full h-auto rounded-md mb-3 object-cover">
+                    <a href="#" class="text-sm text-blue-600 hover:text-amazon-orange">See more</a>
+                </div>
+
+                <!-- Card 3: Health & Personal Care -->
+                <div class="bg-white p-5 rounded-md shadow-md">
+                    <h2 class="text-xl font-bold mb-3">Health & Personal Care</h2>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <img src="https://placehold.co/140x100/4CAF50/ffffff?text=Oral+Care" alt="Oral Care" class="w-full h-auto rounded-sm mb-1">
+                            <p>Oral Care</p>
+                        </div>
+                        <div>
+                            <img src="https://placehold.co/140x100/FF5722/ffffff?text=Vitamins" alt="Vitamins" class="w-full h-auto rounded-sm mb-1">
+                            <p>Vitamins</p>
+                        </div>
+                        <a href="#" class="col-span-2 text-blue-600 hover:text-amazon-orange mt-2">Shop Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Sign In/Promo Card (Specific layout) -->
+                <div class="p-5 rounded-md">
+                    <div class="bg-white p-5 rounded-md shadow-md mb-4">
+                        <h2 class="text-xl font-bold mb-3">Sign in for the best experience</h2>
+                        <button class="w-full py-2 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-500 transition duration-150">Sign in securely</button>
+                    </div>
+                    <img src="https://placehold.co/400x160/333333/ffffff?text=Promo+Banner" alt="Promo" class="w-full h-auto rounded-md hidden lg:block">
+                </div>
+            </div>
+
+            <!-- 3-Card Grid Row 2 (Hidden on small screens, more visible on desktop) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4 hidden md:grid">
+                
+                <!-- Card 5: Electronics -->
+                <div class="bg-white p-5 rounded-md shadow-md">
+                    <h2 class="text-xl font-bold mb-3">Electronics Deals</h2>
+                    <img src="https://placehold.co/300x250/3F51B5/ffffff?text=4K+Monitors" alt="Electronics" class="w-full h-auto rounded-md mb-3 object-cover">
+                    <a href="#" class="text-sm text-blue-600 hover:text-amazon-orange">Explore monitors</a>
+                </div>
+
+                <!-- Card 6: Fashion -->
+                <div class="bg-white p-5 rounded-md shadow-md">
+                    <h2 class="text-xl font-bold mb-3">New arrivals in Fashion</h2>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <img src="https://placehold.co/140x100/9C27B0/ffffff?text=Dresses" alt="Dresses" class="w-full h-auto rounded-sm mb-1">
+                            <p>Dresses</p>
+                        </div>
+                        <div>
+                            <img src="https://placehold.co/140x100/E91E63/ffffff?text=Footwear" alt="Footwear" class="w-full h-auto rounded-sm mb-1">
+                            <p>Footwear</p>
+                        </div>
+                        <a href="#" class="col-span-2 text-blue-600 hover:text-amazon-orange mt-2">See all trends</a>
+                    </div>
+                </div>
+
+                <!-- Card 7: Amazon Devices -->
+                <div class="bg-white p-5 rounded-md shadow-md">
+                    <h2 class="text-xl font-bold mb-3">Shop Amazon Devices</h2>
+                    <img src="https://placehold.co/300x250/FF9800/ffffff?text=Echo+Dot" alt="Amazon Devices" class="w-full h-auto rounded-md mb-3 object-cover">
+                    <a href="#" class="text-sm text-blue-600 hover:text-amazon-orange">Shop now</a>
+                </div>
+            </div>
+
+            <!-- Horizontal Carousel Placeholder (A simple banner here) -->
+            <div class="bg-white p-4 mb-8 rounded-md shadow-md">
+                <h2 class="text-2xl font-bold mb-3">Related to items you viewed</h2>
+                <div class="flex space-x-4 overflow-x-auto p-2">
+                    <div class="flex-shrink-0 w-40 text-center">
+                        <img src="https://placehold.co/150x150/A6A6A6/ffffff?text=Item+A" alt="Item A" class="w-full h-auto rounded-md mb-2">
+                        <p class="text-xs">Product description</p>
+                    </div>
+                    <div class="flex-shrink-0 w-40 text-center">
+                        <img src="https://placehold.co/150x150/A6A6A6/ffffff?text=Item+B" alt="Item B" class="w-full h-auto rounded-md mb-2">
+                        <p class="text-xs">Product description</p>
+                    </div>
+                    <div class="flex-shrink-0 w-40 text-center">
+                        <img src="https://placehold.co/150x150/A6A6A6/ffffff?text=Item+C" alt="Item C" class="w-full h-auto rounded-md mb-2">
+                        <p class="text-xs">Product description</p>
+                    </div>
+                    <div class="flex-shrink-0 w-40 text-center">
+                        <img src="https://placehold.co/150x150/A6A6A6/ffffff?text=Item+D" alt="Item D" class="w-full h-auto rounded-md mb-2">
+                        <p class="text-xs">Product description</p>
+                    </div>
+                    <div class="flex-shrink-0 w-40 text-center">
+                        <img src="https://placehold.co/150x150/A6A6A6/ffffff?text=Item+E" alt="Item E" class="w-full h-auto rounded-md mb-2">
+                        <p class="text-xs">Product description</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- 4. FOOTER -->
+    <footer class="mt-8">
+        <!-- Back to top -->
+        <a href="#top" class="block bg-amazon-blue-medium hover:bg-amazon-blue-medium/90 text-white text-center py-3 text-sm font-semibold transition duration-150">
+            Back to top
+        </a>
+        
+        <!-- Main Footer Links -->
+        <div class="amazon-blue-dark text-white p-10 hidden md:block">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="font-bold mb-2 text-base">Get to Know Us</h3>
+                    <ul class="text-sm space-y-1 text-gray-300">
+                        <li><a href="#" class="hover:underline">Careers</a></li>
+                        <li><a href="#" class="hover:underline">Blog</a></li>
+                        <li><a href="#" class="hover:underline">About Amazon</a></li>
+                        <li><a href="#" class="hover:underline">Investor Relations</a></li>
+                        <li><a href="#" class="hover:underline">Amazon Devices</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="font-bold mb-2 text-base">Make Money with Us</h3>
+                    <ul class="text-sm space-y-1 text-gray-300">
+                        <li><a href="#" class="hover:underline">Sell products on Amazon</a></li>
+                        <li><a href="#" class="hover:underline">Sell on Amazon Business</a></li>
+                        <li><a href="#" class="hover:underline">Sell apps on Amazon</a></li>
+                        <li><a href="#" class="hover:underline">Become an Affiliate</a></li>
+                        <li><a href="#" class="hover:underline">Advertise Your Products</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="font-bold mb-2 text-base">Amazon Payment Products</h3>
+                    <ul class="text-sm space-y-1 text-gray-300">
+                        <li><a href="#" class="hover:underline">Amazon Business Card</a></li>
+                        <li><a href="#" class="hover:underline">Shop with Points</a></li>
+                        <li><a href="#" class="hover:underline">Reload Your Balance</a></li>
+                        <li><a href="#" class="hover:underline">Amazon Currency Converter</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="font-bold mb-2 text-base">Let Us Help You</h3>
+                    <ul class="text-sm space-y-1 text-gray-300">
+                        <li><a href="#" class="hover:underline">Amazon and COVID-19</a></li>
+                        <li><a href="#" class="hover:underline">Your Account</a></li>
+                        <li><a href="#" class="hover:underline">Your Orders</a></li>
+                        <li><a href="#" class="hover:underline">Shipping Rates & Policies</a></li>
+                        <li><a href="#" class="hover:underline">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Language/Logo Footer -->
+        <div class="bg-amazon-blue-dark border-t border-gray-700 p-8 flex flex-col items-center justify-center">
+            <div class="flex items-center">
+                <span class="text-3xl font-bold -mt-1 tracking-tighter text-white">amazon</span>
+                <span class="text-xs ml-1 pt-2 text-white">.com</span>
+            </div>
+            
+            <div class="mt-4 text-xs text-gray-300 space-x-3">
+                <a href="#" class="hover:underline">Conditions of Use</a>
+                <a href="#" class="hover:underline">Privacy Notice</a>
+                <a href="#" class="hover:underline">Consumer Rights</a>
+            </div>
+            <p class="mt-1 text-xs text-gray-300">© 1996-2025, Amazon.com, Inc. or its affiliates</p>
+        </div>
+
+    </footer>
+
+    <!-- Back to top target -->
+    <a id="top"></a>
+
+</body>
+</html>
