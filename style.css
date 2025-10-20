@@ -1,0 +1,18 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e3e6e6; /* Amazon's light grey background */
+        }
+        /* Custom colors for Amazon brand identity */
+        .amazon-blue-dark { background-color: #131921; }
+        .amazon-blue-medium { background-color: #232f3e; }
+        .amazon-orange { color: #fe8c00; }
+        .amazon-search-focus:focus {
+            border-color: #fe8c00;
+            box-shadow: 0 0 0 3px #f90;
+        }
+        .header-link-hover:hover {
+            border: 1px solid white;
+            padding: 8px 9px 8px 9px;
+            margin: -1px -1px -1px -1px; /* Offset to keep dimensions stable on hover */
+        }
